@@ -47,69 +47,76 @@ ul{
     width: 100%;
     list-style-type: none;
     /*padding-left: 0*/
-    /*margin: 0;*/
-    /*padding: 0;*/
+    margin: 0;
+    padding: 0;
     overflow: hidden;
 }
 
 .top-menu{
     /*display:inline;*/
     float: left;
+    text-decoration: none;
 }
 #menu{
     width: 100%;
     background-color: indianred;
 }
-li a {
+.top-menu a {
     color: #FFFFFF;
+    text-decoration: none;
     padding: 14px 16px;
     text-align: center;
     display: block;
-
-    text-decoration: none;
     background-color:indianred;
 }
-
-.flex-container-right{
-    width: 100%;
-    display: flex;
-    /*flex-direction: row-reverse;*/
-    padding-right: 5px;
-    justify-content: center;
-  align-items: center;
+.top-menu .active{
+    background-color: #da425f;
 }
 
-.flex-container-right>div{
-    margin-top:20px;
-    background-color: #FFFFFF;
-    width:450px;
-    height:300px;
-    margin-right: 30px;
+li a:hover:not(.active) {
+    background-color: #111;
 }
 
-.flex-container-right div :hover{
+/*.flex-container-right{*/
+    /*width: 100%;*/
+    /*display: flex;*/
 
-}
+    /*padding-right: 5px;*/
+    /*justify-content: center;*/
+  /*align-items: center;*/
+/*}*/
 
-.flex-container-left{
-    width: 100%;
-    display: flex;
-   justify-content: center;
-  align-items: center;
-    /*padding-left: 5px;*/
-}
+/*.flex-container-right>div{*/
+    /*margin-top:20px;*/
+    /*background-color: #FFFFFF;*/
+    /*width:450px;*/
+    /*height:300px;*/
+    /*margin-right: 30px;*/
+/*}*/
 
-.flex-container-left>div{
-    margin-top:20px;
-    background-color: #FFFFFF;
-    width:450px;
-    height:300px;
-    margin-right: 30px;
-}
-.main{
-     display: flex;
-    flex-direction: column;
-}
+/*.flex-container-right div :hover{*/
+
+/*}*/
+
+/*.flex-container-left{*/
+    /*width: 100%;*/
+    /*display: flex;*/
+   /*justify-content: center;*/
+  /*align-items: center;*/
+
+/*}*/
+
+/*.flex-container-left>div{*/
+    /*margin-top:20px;*/
+    /*background-color: #FFFFFF;*/
+    /*!*width:450px;*!*/
+    /*!*height:300px;*!*/
+    /*margin-right: 30px;*/
+/*}*/
+/*.main{*/
+     /*display: flex;*/
+    /*flex-direction: column;*/
+/*}*/
 img {
     max-width: 100%;
     max-height: 100%;
