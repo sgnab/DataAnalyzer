@@ -5,10 +5,10 @@ from flask_pymongo  import PyMongo
 from db_config import mongo_user,mongo_pass,mongo_DB
 
 from app import app
-
 app.config['MONGO_DBNAME']=mongo_DB
 app.config['MONGO_URI'] = 'mongodb://'+mongo_user+":"+mongo_pass+"@ds131697.mlab.com:31697/users"
-mongo = PyMongo(app)
+with app.app_context():
+    mongo = PyMongo(app)
 
 class RegisterForm(Form):
     firstname=StringField(label="First name", validators=[validators.InputRequired()])
@@ -24,14 +24,14 @@ class RegisterForm(Form):
 
 users = mongo.db.users
 
-def user_check(username):
-    check_user = users.find_one({'username':username})
-    if check_user:
+def check_user(username):
+    current_user = users.find_one({'username':username})
+    if current_user:
         return True
     else:
         return False
 
 
-def user_add(password,username):
-    hash_pass = bcrypt.hashpw(password,bcrypt.gensalt())
-    users.insert({"username":username,"password":hash_pass})
+def add_user(password,username,email,first_name,last_name):
+    hash_pass = bcrypt.hashpw(password.encode('utf8'),bcrypt.gensalt())
+    users.insert({"username":username,"password":hash_pass,'email':email,'firstname':first_name,'lastname':last_name})
