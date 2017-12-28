@@ -161,4 +161,8 @@ img {
     background-color:rgb(0,255,0);
 }
 
-
+.login-main{
+    width: 300px;
+    background-color: #FFFFFF;
+    margin-top:100px;
+}

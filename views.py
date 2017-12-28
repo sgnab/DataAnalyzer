@@ -1,16 +1,15 @@
 from flask import render_template,request,flash,redirect,url_for,session
-from models import RegisterForm,mongo,check_user,add_user,users
-
+from models import RegisterForm,mongo,check_user,add_user,users,LoginForm
+import bcrypt
 from app import app
+from controller.log_decorator import login_required
 # The main page
 @app.route("/",methods=["GET"])
 def index():
     return render_template("index.html")
 
 # The Login page
-@app.route("/login",methods=["GET","POST"])
-def login_system():
-    return "login"
+
 
 @app.route("/register",methods=["GET","POST"])
 def register_handle():
@@ -38,9 +37,39 @@ def register_handle():
 
     return render_template("register.html", form=form)
 
+
+@app.route("/login",methods=["GET","POST"])
+def login():
+    if 'username' in session:
+        return "Here will be a dashboard for " + session['username']
+    form=LoginForm(request.form)
+    if request.method=="POST" and form.validate():
+        print("start posting")
+        username=request.form['username']
+        pswd = request.form['password']
+
+        current_user = users.find_one({'username': username})
+        if  current_user:
+            curr_pass = current_user['password']
+            if bcrypt.hashpw(pswd.encode('utf-8'),curr_pass) == curr_pass:
+                session['username']=current_user['username']
+                session['logged_in'] = True
+                return redirect('/dashboard')
+            else:
+                flash("Inavlid Username or Password")
+
+        else:
+            return redirect(url_for("register_handle"))
+    return render_template("login.html", form=form)
+
+
+
 @app.route('/dashboard',methods=["GET","POST"])
+@login_required
 def dashboard():
-    return "I am a dashboard"
+    if 'username' in session:
+        return "Here will be a dashboard for " + session['username']
+    return render_template('dashboard.html')
 
 
 if __name__== "__main__":

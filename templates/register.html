@@ -2,9 +2,7 @@
 <html lang="en-US">
     <head>
         <meta charset="UTF-8">
-        <title>
-    Register
-    </title>
+        <title> Register  </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +45,7 @@
 
             </div>
             <!--flash coding for messages-->
-{% with messages = get_flashed_messages() %}
+    {% with messages = get_flashed_messages() %}
 	  {% if messages %}
 	    {% for message in messages %}
 		  <div class="alert alert-warning alert-dismissible" role="alert">

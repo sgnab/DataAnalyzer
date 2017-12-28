@@ -20,7 +20,9 @@ class RegisterForm(Form):
     confirm = PasswordField("Repeat Password")
     accept_tos = BooleanField('I accept the Terms of Service and the Privacy Notice (last updated Dec 2017)',validators=[validators.required()])
 
-
+class LoginForm(Form):
+    username =StringField(label="Username",validators=[validators.InputRequired()])
+    password = PasswordField(label="Password", validators=[validators.InputRequired()])
 
 users = mongo.db.users
 
@@ -33,5 +35,5 @@ def check_user(username):
 
 
 def add_user(password,username,email,first_name,last_name):
-    hash_pass = bcrypt.hashpw(password.encode('utf8'),bcrypt.gensalt())
+    hash_pass = bcrypt.hashpw(password.encode('utf-8'),bcrypt.gensalt())
     users.insert({"username":username,"password":hash_pass,'email':email,'firstname':first_name,'lastname':last_name})

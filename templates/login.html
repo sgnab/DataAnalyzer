@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login Page</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/scripts/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
+    <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
+    <link rel="stylesheet" href="static/css/main.css">
+
 </head>
-<body>
+<body class="bgcolormid">
+<div class="container text-center login-main" >
+    <section class="page-header">
+        <div>
+            <h2>Log in</h2>
+        </div>
+    </section>
+
+     <div class="panel-body">
+         <form action="/login" method="post">
+         {% for field in form %}
+            <div>{{field.label}}</div>
+            <div>{{field(class='rcorners')}}</div>
+            {% if field.errors %}
+              {% for error in field.errors %}
+                  <div style="color: red;">{{error}}</div>
+              {% endfor %}
+            {% endif %}
+         {% endfor %}
+          <input class="rcorners" style="background-color:green;" type="submit" value="Login" /><br><a href="/request-password-reset" style="color:light-blue">Forgot password?</a>
+          <br><a href="/register" style="color:light-blue">Don't have an account?</a>
+        </form>
+        </div>
+
+      {% with messages = get_flashed_messages() %}
+	      {% if messages %}
+	          {% for message in messages %}
+		        <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+			    {{message}}
+		        </div>
+		      {% endfor %}
+          {% endif %}
+	 {% endwith %}
+
+</div>
 
 </body>
 </html>
