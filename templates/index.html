@@ -4,98 +4,74 @@
 
 {% block html %}
 {{ super() }}
-
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-
-
-</head>
 <body>
+    <div id="wrapper">
+          <div id="header">
+          </div>
+          <div class="container main">
+
+                <div class="row ">
+                     <div id="div1" class="col-lg-6" ><img id="g-analytic" src="../static/images/analytics.png" alt="analtic picture"></div>
+                      <div id="div2" class="col-lg-6" style="margin-top: 30px">
+                      <h3>Google Analytic Analyzer</h3>
+                          <p>Use our G-Analytic service to analyze your website. Analyze the recent  number of visitors, hits and the most popular pages in your website. Use
+                          the G-Predictor to see the magic.
+                              <a href="#">More Details</a></p>
+                      </div>
+                </div>
+
+                <div class="row">
+                 <div id="div3" class="col-lg-6" style="margin-top: 30px">
+                     <h3>Social Network Analyzer</h3>
+                      <p>Use our SN-Analytic service to analyze your social network personalor business page. Analyze the recent  number of likes , Hashtags and sharings. Grow your bisness by predicting
+                          your page popularity.
+                          <a href="#">More Details</a></p>
+                 </div>
+                 <div id="div4" class="col-lg-6"><img id="sn-analytic" src="../static/images/facebook-analytics.png" alt="facebook analtic picture"></div>
+
+                </div>
+                <div id="single-container" class="single-container">
+                   <div>
+                        <h3>Try it free!</h3>
+                    Our service is free to try!. Yap! Freeeee!
+                    Hold on. By free we mean for a limited time to see if it fits your business.
+                        <div>
+                         <button  id="signup-button" type="button" class="btn-primary">Sign Up</button>
+                     </div>
+                   </div>
+                </div>
+          </div>
+            <div class="footer" id="footer">
+                <div class="row" >
+                    <div id="l-column" class="col-sm-4">
+                        <ul class="pagegroup">
+                            <li>Company</li>
+                            <li>Products</li>
+                            <li>Prices</li>
+                            <li>FAQ</li>
+                        </ul>
 
 
-<div id="wrapper">
-
- <div id="header">
-
-</div>
-
-
-<div class="container main">
-
-
- <div class="row ">
-     <div id="div1" class="col-lg-6" ><img id="g-analytic" src="../static/images/analytics.png" alt="analtic picture"></div>
-      <div id="div2" class="col-lg-6" style="margin-top: 30px">
-      <h3>Google Analytic Analyzer</h3>
-          <p>Use our G-Analytic service to analyze your website. Analyze the recent  number of visitors, hits and the most popular pages in your website. Use
-          the G-Predictor to see the magic.
-              <a href="#">More Details</a></p>
-      </div>
-
-
- </div>
-
-    <div class="row">
-     <div id="div3" class="col-lg-6" style="margin-top: 30px">
-         <h3>Social Network Analyzer</h3>
-          <p>Use our SN-Analytic service to analyze your social network personalor business page. Analyze the recent  number of likes , Hashtags and sharings. Grow your bisness by predicting
-              your page popularity.
-              <a href="#">More Details</a></p>
-     </div>
-      <div id="div4" class="col-lg-6"><img id="sn-analytic" src="../static/images/facebook-analytics.png" alt="facebook analtic picture"></div>
-
-
- </div>
-<div id="single-container" class="single-container">
-   <div>
-        <h3>Try it free!</h3>
-    Our service is free to try!. Yap! Freeeee!
-    Hold on. By free we mean for a limited time to see if it fits your business.
-        <div>
-         <button  id="signup-button" type="button" class="btn-primary">Sign Up</button>
-     </div>
-   </div>
-
-
-</div>
-
-</div>
-    <div class="footer" id="footer">
-        <div class="row" >
-            <div id="l-column" class="col-sm-4">
-                <ul class="pagegroup">
-                    <li>Company</li>
-                    <li>Products</li>
-                    <li>Prices</li>
-                    <li>FAQ</li>
-                </ul>
-
-
-            </div>
-            <div id="m-column" class="col-sm-4">
-                <ul class="pagegroup">
-                    <li>Request a demo</li>
-                    <li>Career</li>
-                    <li>Why Us?</li>
-                    <li>Contact</li>
-
-                </ul>
-            </div>
-            <div id="r-column" class="col-sm-4">
-                <ul class="pagegroup">
-                    <li>Google Analytic Analyzor</li>
-                    <li>Social Network Analyzor</li>
-                    <li>Business Monitor</li>
-
-                </ul>
-            </div>
+                    </div>
+                    <div id="m-column" class="col-sm-4">
+                        <ul class="pagegroup">
+                            <li>Request a demo</li>
+                            <li>Career</li>
+                            <li>Why Us?</li>
+                            <li>Contact</li>
+                        </ul>
+                    </div>
+                    <div id="r-column" class="col-sm-4">
+                        <ul class="pagegroup">
+                            <li>Google Analytic Analyzor</li>
+                            <li>Social Network Analyzor</li>
+                            <li>Business Monitor</li>
+                        </ul>
+                    </div>
+                </div>
         </div>
-
     </div>
-</div>
-<script src="../static/js/signup.js"></script>
+    <script src="../static/js/signup.js"></script>
 
 </body>
-<!--</html>-->
 {% endblock html %}
