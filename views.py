@@ -3,6 +3,9 @@ from models import RegisterForm,mongo,check_user,add_user,users,LoginForm
 import bcrypt
 from app import app
 from controller.log_decorator import login_required
+from flask_bootstrap import Bootstrap
+Bootstrap(app)
+
 # The main page
 @app.route("/",methods=["GET"])
 def index():
@@ -70,6 +73,10 @@ def dashboard():
     if 'username' in session:
         return "Here will be a dashboard for " + session['username']
     return render_template('dashboard.html')
+@app.route("/404",methods=["GET"])
+def notFound():
+    return render_template("404.html")
+
 
 
 if __name__== "__main__":
