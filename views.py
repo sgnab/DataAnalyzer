@@ -67,17 +67,26 @@ def login():
 
 
 
-@app.route('/dashboard',methods=["GET","POST"])
-@login_required
-def dashboard():
+@app.route('/dashboardf',methods=["GET","POST"])
+# @login_required
+def dashboardf():
     if 'username' in session:
         return "Here will be a dashboard for " + session['username']
-    return render_template('dashboard.html')
+    return render_template('dashboardf.html')
 @app.route("/404",methods=["GET"])
 def notFound():
     return render_template("404.html")
 
+@app.route('/dashboard',methods=["GET","POST"])
+@login_required
+def dashboard():
+    return render_template('dashboard.html')
 
+@app.route('/logout',methods=["GET","POST"])
+@login_required
+def log_out():
+    session.clear()
+    return redirect(url_for('login'))
 
 if __name__== "__main__":
     app.run(debug=True)

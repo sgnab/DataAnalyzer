@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "helper/base_dash.html" %}
+
+{% block html %}
+{{ super() }}
+<body id="body" >
+<script src="../static/js/dashGapi.js">
+
+</script>
+<div id="dash-container" class="dashboard-holder">
+</div>
+<!--<div id="embed-api-auth-container"></div>-->
+<!--<div id="chart-container"></div>-->
+<!--<div id="view-selector-container"></div>-->
+<!--<script>-->
+
+<!--</script>-->
+
+
+    <script src="../static/js/dashLayout.js"></script>
+
 
 </body>
-</html>
+{% endblock html %}

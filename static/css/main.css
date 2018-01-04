@@ -112,6 +112,13 @@ display: inline-block;
   vertical-align: middle;
   height: 150px;
 }
+.dashboard-holder{
+    display: flex;
+    width:100%;
+
+}
+
+
 
 
 
