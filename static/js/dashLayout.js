@@ -43,7 +43,6 @@ function gapiDashMaker(dashId,newDiv) {
     }
          alert('end code')
 }
-
 function basicGapiDash(newDiv) {
             alert("strat")
             var authBut = document.createElement('div');
@@ -57,7 +56,6 @@ function basicGapiDash(newDiv) {
             newDiv.appendChild(timeLin);
             gapi.analytics.ready(function() {
             alert("gapi start")
-
               /**
                * Authorize the user immediately if the user has already granted access.
                * If no access has been created, render an authorize button inside the
@@ -67,8 +65,6 @@ function basicGapiDash(newDiv) {
             container: 'embed-api-auth-container',
             clientid: '275364150559-bbe54k2s1eet3lse25q5mjs8lg7fl4o5.apps.googleusercontent.com'
             });
-
-
               /**
                * Create a new ViewSelector instance to be rendered inside of an
                * element with the id "view-selector-container".
@@ -79,8 +75,6 @@ function basicGapiDash(newDiv) {
 
             // Render the view selector to the page.
             viewSelector.execute();
-
-
               /**
                * Create a new DataChart instance with the given query parameters
                * and Google chart options. It will be rendered inside an element
