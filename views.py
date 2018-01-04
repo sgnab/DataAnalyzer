@@ -11,7 +11,7 @@ Bootstrap(app)
 def index():
     return render_template("index.html")
 
-# The Login page
+# The registeration page
 
 
 @app.route("/register",methods=["GET","POST"])
