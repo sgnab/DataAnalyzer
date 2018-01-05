@@ -112,14 +112,31 @@ display: inline-block;
   vertical-align: middle;
   height: 150px;
 }
-.dashboard-holder{
-    display: flex;
-    width:100%;
+/*.dashboard-holder{*/
+    /*display: flex;*/
+    /*width:100%;*/
+
+/*}*/
+
+.newDivs{
+/*display: flex;*/
+margin-left: 5px;
 
 }
+.dashStyleSelect{
+    border-style:solid;
+    border-width: 2px;
 
+    border-color: #add8e6;
 
+}
+.dashStyleChart{
+    border-style:solid;
+    border-width: 2px;
 
+    border-color: #add8e6;
+
+}
 
 
 
