@@ -80,6 +80,14 @@ function gapiDashMaker(dashType,newDiv) {
 
             container: view_SelecId
             });
+
+            // Render the view selector to the page.
+            viewSelector.execute();
+              /**
+               * Create a new DataChart instance with the given query parameters
+               * and Google chart options. It will be rendered inside an element
+               * with the id "chart-container".
+               */
             if(dashType === 'sessions'){
                 alert('sessions')
                 var dataChart = new gapi.analytics.googleCharts.DataChart({
@@ -93,8 +101,8 @@ function gapiDashMaker(dashType,newDiv) {
               container: chart_Id,
               type: 'LINE',
               options: {
-                width: '100%',
-             }
+                width: '100%'
+              }
             }
           });
             }else if(dashType === 'countries'){
@@ -117,21 +125,25 @@ function gapiDashMaker(dashType,newDiv) {
                   }
                 }
               });
+
+
             }
+          /**
+           * Render the dataChart on the page whenever a new view is selected.
+           */
            viewSelector.on('change', function(ids) {
             dataChart.set({query: {ids: ids}}).execute();
             });
 
         });
-           gapi.analytics.auth.on('success', function(response) {
+            gapi.analytics.auth.on('success', function(response) {
             //hide the auth-button
             document.querySelector(".changeDisplay").style.display='none';
-             dataChart.execute();
+
+             // timeline.execute();
+
              });
-            dataChar.on('error', function(e) {
-            console.dir(e);
-            console.log('timeline err')
-});
+
 }
 
 
