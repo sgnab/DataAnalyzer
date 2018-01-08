@@ -9,13 +9,51 @@ Array.from(addMainDash).forEach(function(addSubDash){
             newDiv.setAttribute('id',addSubDash.id+"Ele");
             newDiv.className = "newDivs col-sm-4";
             var dashContainer = document.getElementById('dash-container');
-            dashContainer.appendChild(newDiv);
-            DashChecker(addSubDash.id,newDiv);
+            //check if the dashboard alres=ady exist
+            var childNodeArray = dashContainer.childNodes;
+            if (childNodeArray.length>1){
+                var existNode= []
+                childNodeArray.forEach(function(child){
+                    if(child.id ===newDiv.id){
+                    existNode.push(child.id) ;
+                    }
+                })
+                alert(existNode)
+                if (existNode.length>0){
+                    alert("This Dashboard Already Exist!")
+                }else if(existNode.length===0){
+                    dashContainer.appendChild(newDiv);
+                    var closeButt =document.createElement('span');
+                    // adding the close Button using Jquery
+                    closeButt.className="close-but";
+                    closeButt.addEventListener('click',function(e){
+                        e.preventDefault();
+                        var ParentId = this.parentElement.getAttribute('id')
+                         $("#"+ParentId).remove();
+                                        },false)
+                    newDiv.appendChild(closeButt)
+                    DashChecker(addSubDash.id,newDiv);
+                }
+
+            }else{
+                dashContainer.appendChild(newDiv);
+                var closeButt =document.createElement('span');
+                // adding the close Button using Jquery
+                closeButt.className="close-but";
+                closeButt.addEventListener('click',function(e){
+                     e.preventDefault();
+                     var ParentId = this.parentElement.getAttribute('id')
+                     $("#"+ParentId).remove();
+                                        },false)
+                newDiv.appendChild(closeButt)
+                DashChecker(addSubDash.id,newDiv);
+
+            }
+
          });
 });
 // check the Api source (google || Facebook || Instagram) and pass the id and the container ID to dash maker.
 function DashChecker(dashId,newDiv) {
-
     switch (dashId[5]){
         case 'g':
             gapiDashSelect(dashId,newDiv);
@@ -60,6 +98,7 @@ function gapiDashMaker(dashType,newDiv) {
             alert(newDiv.id+"hfdfdgf")
             gapiAuthorize(newDiv);
             alert("endgapi")
+
             var viewChart = document.createElement('div');
             viewChart.className = "dashStyleChart";
             var chart_Id = 'chart-container-'+newDiv.id;
@@ -80,6 +119,7 @@ function gapiDashMaker(dashType,newDiv) {
 
             container: view_SelecId
             });
+            //close button
 
             // Render the view selector to the page.
             viewSelector.execute();
