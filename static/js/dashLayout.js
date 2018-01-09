@@ -1,7 +1,7 @@
 // A section to be dynamically added upon clicking "Add dashboard" link
 //For the sake od debug and maintainability ,t his code is broken down to small parts as much as possible.
+(function init(){
 var addMainDash = document.getElementsByClassName("dash-add");
-// Loop over all subb Dash links and add event Listener
 Array.from(addMainDash).forEach(function(addSubDash){
        addSubDash.addEventListener('click',function (event) {
             event.preventDefault();
@@ -51,7 +51,7 @@ Array.from(addMainDash).forEach(function(addSubDash){
             }
 
          });
-});
+});})()
 // check the Api source (google || Facebook || Instagram) and pass the id and the container ID to dash maker.
 function DashChecker(dashId,newDiv) {
     switch (dashId[5]){
