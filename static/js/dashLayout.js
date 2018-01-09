@@ -18,9 +18,9 @@ Array.from(addMainDash).forEach(function(addSubDash){
                     existNode.push(child.id) ;
                     }
                 })
-                alert(existNode)
+                // alert(existNode)
                 if (existNode.length>0){
-                    alert("This Dashboard Already Exist!")
+                    // alert("This Dashboard Already Exist!")
                 }else if(existNode.length===0){
                     dashContainer.appendChild(newDiv);
                     var closeButt =document.createElement('span');
@@ -80,7 +80,7 @@ function gapiDashSelect(dashId,newDiv) {
             gapiDashMaker('hits',newDiv)
             break;
     }
-         alert('end code')
+         // alert('end code')
 }
 function gapiAuthorize(newDiv){
     var authBut = document.createElement('div');
@@ -95,9 +95,9 @@ function gapiAuthorize(newDiv){
 
 }
 function gapiDashMaker(dashType,newDiv) {
-            alert(newDiv.id+"hfdfdgf")
+            // alert(newDiv.id+"hfdfdgf")
             gapiAuthorize(newDiv);
-            alert("endgapi")
+            // alert("endgapi")
 
             var viewChart = document.createElement('div');
             viewChart.className = "dashStyleChart";
@@ -110,7 +110,7 @@ function gapiDashMaker(dashType,newDiv) {
             newDiv.appendChild(viewChart);
             newDiv.appendChild(selecView);
             gapi.analytics.ready(function() {
-            alert("gapi start")
+            // alert("gapi start")
               /**
                * Create a new ViewSelector instance to be rendered inside of an
                * element with the id "view-selector-container".
@@ -129,7 +129,7 @@ function gapiDashMaker(dashType,newDiv) {
                * with the id "chart-container".
                */
             if(dashType === 'sessions'){
-                alert('sessions')
+                // alert('sessions')
                 var dataChart = new gapi.analytics.googleCharts.DataChart({
                 query: {
               metrics: 'ga:sessions',
@@ -146,7 +146,7 @@ function gapiDashMaker(dashType,newDiv) {
             }
           });
             }else if(dashType === 'countries'){
-                alert('countries')
+                // alert('countries')
                var dataChart = new gapi.analytics.googleCharts.DataChart({
                 query: {
                   metrics: 'ga:sessions',

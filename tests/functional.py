@@ -24,7 +24,10 @@ class DataAnalyzerLoginTest(unittest.TestCase):
         passElement.clear()
         passElement.send_keys(password)
         button.click()
-        WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id("dash-container"))
+        for i in range(2):
+            myelement = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id("dash-container"))
+            dropDoawn = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "GapiDash"))).click()
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "Dash-g1"))).click()
 
     def tearDown(self):
         self.driver.close()
